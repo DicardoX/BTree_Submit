@@ -6,7 +6,7 @@
 
 namespace sjtu {
 
-    const int blockSize = 4079;
+    const int blockSize = 4096;
     template <class KeyType, class ValueType, class Compare = std::less<KeyType> >
 
     class BTree {
@@ -18,8 +18,8 @@ namespace sjtu {
         class const_iterator;
 
     private:
-        static const int M = (((sizeof(KeyType) + sizeof(Node_t)) * 2 > blockSize) ? 1 : (blockSize / (sizeof(Node_t) + sizeof(KeyType)) - 1));                // need modify
-        static const int L = (((sizeof(value_type)) * 2 > blockSize) ? 1 : (blockSize / (sizeof(value_type)) - 1));
+        static const int M = (((sizeof(KeyType) + sizeof(Node_t)) * 2 > 4079) ? 1 : (4079 / (sizeof(Node_t) + sizeof(KeyType)) - 1));                
+        static const int L = (((sizeof(value_type)) * 2 > 4076) ? 1 : (4076 / (sizeof(value_type)) - 1));  
         //static const int M = 10;
         //static const int L = 5;
         //static const int M = 2000;
