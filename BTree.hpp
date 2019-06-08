@@ -737,10 +737,10 @@ namespace sjtu {
             build_BPlusTree();
         }
         size_t count(const KeyType& key) const {
-            //return static_cast <size_t> (find(key) != iterator(nullptr));
-            if(find(key) == iterator(NULL))
-                return 0;
-            return 1;
+            return static_cast <size_t> (find(key) != iterator(nullptr));
+            //if(find(key) == iterator(NULL))
+                //return 0;
+            //return 1;
         }
         ValueType at(const KeyType& key){
             iterator itr = find(key);
